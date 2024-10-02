@@ -38,6 +38,7 @@ st.markdown(streamlit_style, unsafe_allow_html=True)
 
 def query_api(user_input):
     url = "https://pyvlvu7m39.execute-api.us-east-1.amazonaws.com/staging/"
+    #url = "https://wlkstr766g44bb2kozyy7rcbpu0uxeir.lambda-url.us-east-1.on.aws/"
     payload = {"query": user_input}
     api_headers = {'Content-Type': 'application/json'}
 
@@ -49,6 +50,7 @@ def query_api(user_input):
         headers = dict(request.headers.items())
         response = requests.post(url, json=payload, headers=headers)
         json_string = response.json()
+        print(json_string)
 
         return json_string
     
